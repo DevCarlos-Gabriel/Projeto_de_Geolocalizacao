@@ -33,6 +33,14 @@
 
           <?php
                if(isset($_GET['login'])){
+                if($_GET['login'] == 'ok'){
+                  echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+                  <strong>Atenção!</strong> Login efetuado com exito<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                  </button>
+                  </div>';
+                }
+
                   if($_GET['login'] == 'erro'){
                     echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
                     <strong>Atenção!</strong> Email ou senha Invalidos<button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -57,6 +65,11 @@
                   }
                 }
             ?>
+			
+			
+			
+		
+			  
 
             <div class="col-md-8">
               <div class="mb-4">

@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 4.8.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 04-Abr-2023 às 17:39
--- Versão do servidor: 10.4.27-MariaDB
--- versão do PHP: 8.1.12
+-- Generation Time: 08-Maio-2023 às 15:43
+-- Versão do servidor: 10.1.32-MariaDB
+-- PHP Version: 5.6.36
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -18,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `dbpggeo`
+-- Database: `dbgeoloc`
 --
 
 -- --------------------------------------------------------
@@ -35,7 +36,7 @@ CREATE TABLE `areapub` (
   `cidade` varchar(20) NOT NULL,
   `longitude` float(10,6) NOT NULL,
   `latitude` float(10,6) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -54,7 +55,7 @@ CREATE TABLE `tbdenuncia` (
   `latitude` float(10,6) NOT NULL,
   `longitude` float(10,6) NOT NULL,
   `checado` varchar(1) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -66,46 +67,56 @@ CREATE TABLE `tbusuario` (
   `cod_usu` int(5) UNSIGNED NOT NULL,
   `nome` varchar(80) NOT NULL,
   `email` varchar(80) NOT NULL,
-  `senha` varchar(8) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `senha` varchar(8) NOT NULL,
+  `codconfirm` varchar(60) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Índices para tabelas despejadas
+-- Extraindo dados da tabela `tbusuario`
+--
+
+INSERT INTO `tbusuario` (`cod_usu`, `nome`, `email`, `senha`, `codconfirm`) VALUES
+(1, 'taylor', 'tayrebert@gmail.com', '123', '6458f6e154cbd'),
+(12, 'p NatÃ£', 'pnata@gmail.com', 'conceica', '6458fba2419e7'),
+(13, 'kaua', 'capiraldo@gmail.com', '852', '6458fc422da82');
+
+--
+-- Indexes for dumped tables
 --
 
 --
--- Índices para tabela `areapub`
+-- Indexes for table `areapub`
 --
 ALTER TABLE `areapub`
   ADD PRIMARY KEY (`cpf`);
 
 --
--- Índices para tabela `tbdenuncia`
+-- Indexes for table `tbdenuncia`
 --
 ALTER TABLE `tbdenuncia`
   ADD PRIMARY KEY (`cod_denuncia`);
 
 --
--- Índices para tabela `tbusuario`
+-- Indexes for table `tbusuario`
 --
 ALTER TABLE `tbusuario`
   ADD PRIMARY KEY (`cod_usu`);
 
 --
--- AUTO_INCREMENT de tabelas despejadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de tabela `tbdenuncia`
+-- AUTO_INCREMENT for table `tbdenuncia`
 --
 ALTER TABLE `tbdenuncia`
   MODIFY `cod_denuncia` int(8) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `tbusuario`
+-- AUTO_INCREMENT for table `tbusuario`
 --
 ALTER TABLE `tbusuario`
-  MODIFY `cod_usu` int(5) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `cod_usu` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

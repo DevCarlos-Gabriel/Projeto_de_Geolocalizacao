@@ -58,7 +58,7 @@
               }
             ?>
 			
-			
+			<meta http-equiv="refresh" content="5; URL=index.php">
 			
 
           <script>
