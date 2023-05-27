@@ -1,24 +1,29 @@
 <?php
-  include('../banco.php');
+// pegando dados do ajax em post
 
-  $nome = $_POST['nome'];
-  $email = $_POST['email'];
-  $senha = $_POST['senha1'];
+  $id_usus = filter_input(INPUT_POST, 'codusu');
+  $nome = filter_input(INPUT_POST, 'nome');
+  $email = filter_input(INPUT_POST, 'email');
+  $senha = filter_input(INPUT_POST, 'senha');
   $codigo_confirmacao = uniqid();
 
-      // Verificar a ordem dos valores a seguir
-  $sql = "insert into tbusuario (codusu,nome,email,senha,codconfirm)
-                       values(null,'$nome','$email','$senha','$codigo_confirmacao')";
+  include_once '../banco.php';
 
-  $assunto = "Confirmação de cadastro";
-  $mensagem = "Olá $nome, por favor clique no link abaixo para confirmar seu cadastro: http://seusite.com/confirmacao.php?codigo=$codigo_confirmacao";
+     if ($id_usus == ''){
+      $sql = "INSERT INTO tbusuario (codusu,nome,email,senha,codconfirm) VALUES(null,'$nome','$email','$senha','$codigo_confirmacao')";
+     }
 
-  $insert = $conexao->query($sql);
+  $insert = mysqli_query($conexao, $sql);
 
   if($insert==true)
   {
-    header('Location: cadastro.php?insert=ok');
+    echo '1';
+
+    //header('Location: cadastro.php?');
   }else{
-    header('Location: cadastro.php?insert=error');
+    echo '0';
+    echo ' Erro: ' . mysqli_errno($conexao) . ' - ' . mysqli_error($conexao);
+
+    //header('Location: cadastro.php?');
   }
 ?>

@@ -1,6 +1,15 @@
 <?php
-    $conexao =  new mysqli('localhost','root','','dbgeoloc');
-    if (mysqli_connect_errno()){
-        trigger_error(mysqli_connect_error());
+    $host = 'localhost';
+    $username = 'root';
+    $passwd = '';
+    $dbname = 'dbgeoloc';
+    
+
+    $conexao = mysqli_connect($host, $username, $passwd, $dbname);
+
+    if ($conexao === false){
+        echo "Problemas para conectar ao Banco. Erro: ";
+        echo mysqli_connect_errno() . ": " . mysqli_connect_errno();
+        die;
     }
 ?>

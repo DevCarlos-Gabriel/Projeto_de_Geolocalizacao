@@ -35,49 +35,10 @@
               <h3>Fazer cadastro na <strong>Impact</strong></h3>
               <p class="mb-4">Bem-vindo, para realizar seu cadastro informe seus dados nos campos a seguir.</p>
             </div>
-            <form action="salvacad.php" method="POST">
-            <?php
-              if(isset($_GET['insert'])){
-                   if($_GET['insert'] == 'ok'){
-                   echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
-                   <strong>Cadastro efetuado com êxito!</strong><button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                   <span aria-hidden="true">&times;</span>
-                   </button>
-                   </div>';
-				   
-				   
-                  }
-
-                 if($_GET['insert'] == 'error'){
-                 echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-                 <strong>Erro ao cadastrar os dados!</strong><button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                 <span aria-hidden="true">&times;</span>
-                 </button>
-                 </div>';
-               }
-              }
-            ?>
-			
-			
-			
-
-          <script>
-              function validarSenha(){
-                var senha1 = document.getElementById("senha1").value;
-                var senha2 = document.getElementById("senha2").value;
-
-                const bot =  document.querySelector('.botao');
-
-                if (senha1 != senha2)
-                {
-                  alert('senhas diferentes');
-                    bot.type = 'reset';
-                }else{
-                  bot.type = 'submit';
-                }
-              }
-          </script>
+            <form action="salvacad.php" method="POST" id="cadastro">
 			  
+        <input type="text" class="form-control" name="id_usu" id="id_usu" readonly disabled><br>
+
 			  <div class="form-group first">
             <label for="nome">Nome</label>
             <input type="text" class="form-control" name="nome" id="nome" Required>
@@ -95,10 +56,10 @@
 
         <div class="form-group last mb-4">
           <label for="password">Informe novamente a Senha</label>
-          <input type="password" class="form-control" name="senha2" id="senha2" onblur="validarSenha()"  Required>
+          <input type="password" class="form-control" name="senha2" id="senha2" Required>
         </div>
 			  
-        <input type="submit" value="Cadastrar" class="btn text-white btn-block btn-primary botao">
+        <input type="submit" value="Cadastrar" class="btn text-white btn-block btn-primary" id="botao">
         
               
 			  
@@ -112,13 +73,63 @@
     </div>
   </div>
   
-  
-  
+    
+    <script src="../js/jquery3.7_.js"></script>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="../js/weetalert2.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/main.js"></script>
 
-  
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
+    <script>
+      $(document).ready(function(){
+        
+        $('#senha2').on('blur', function() {
+          var senha1 = $('#senha1').val();
+          var senha2 = $(this).val();
+          var but = $('#botao');
+
+          if (senha1 !== senha2) {
+            but.prop('type', 'reset');
+            Swal.fire('Cuidado!', 'As senhas estam diferentes!', 'warning');
+          } else {
+            but.prop('type', 'submit');
+          }
+        });
+
+      
+        $("#cadastro").submit(function(event){
+          event.preventDefault();
+
+          var idUsuario = $("input[name='id_usu']").val();
+          var nome = $("input[name='nome']").val();
+          var email = $("input[name='email']").val();
+          var senha = $("input[name='senha1']").val();
+
+
+          $.post("salvacad.php", { codusu: idUsuario, nome: nome, email: email, senha: senha }, function(data) {
+            if (data.trim() === '1') {
+              /*Swal.fire('Sucesso!', 'Cadastro efetuado com êxito!', 'success');*/arguments
+
+              Swal.fire({
+                title: 'Sucesso!',
+                text: 'Cadastro efetuado com êxito!',
+                icon: 'success',
+                timer: 3000, // Tempo em milissegundos (3 segundos)
+                showConfirmButton: false
+              }).then(function() {
+                window.location.href = '../index.php'; // Redirecionar para a página desejada após o tempo definido
+              });// fim do then
+            } else {
+              Swal.fire('Erro!', 'Erro ao cadastrar os dados!', 'error');
+            }
+          });
+        });
+
+      }); // fim do jquery
+      
+
+      
+    </script>
   </body>
 </html>

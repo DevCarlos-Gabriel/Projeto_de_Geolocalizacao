@@ -88,11 +88,7 @@
                 
               </div>
               
-              <div class="d-flex mb-5 align-items-center">
-                <label class="control control--checkbox mb-0"><span class="caption">Lembrar</span>
-                  <input type="checkbox" checked="checked"/>
-                  <div class="control__indicator"></div>
-                </label>
+              <div class="d-flex mb-4 col-6 ">
                 <span class="ml-auto"><a href="#" class="forgot-pass">Esqueceu a senha?</a></span> 
               </div>
 
@@ -106,7 +102,7 @@
              66г xili5rnm xat24cr simh&gor xexeäyu x4uap5 x18
              d9169 akhd6sd x16tdsg8 xih12dhg xggylnq ala2a7pz
              _a6hd" href="./cadastro.php" role="link"
-             tabindex="0"><span class="_aacl _aaco _aacw _aad0 _aad7" style="green">Cadastre-se</span></a>
+             tabindex="0"><span class="_aacl _aaco _aacw _aad0 _aad7" >Cadastre-se</span></a>
             </p>
         </div>
 			  

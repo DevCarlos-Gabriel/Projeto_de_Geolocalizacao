@@ -1,6 +1,5 @@
 <?php
-    include 'banco.php';
-    
+    include_once 'banco.php';
     $email = $_POST['email'];
     $senha = $_POST['senha'];
 
@@ -21,15 +20,8 @@
             
             /*echo 'Usuário encontrado';*/
 
-            (header( 'Location: login-form/login.php?login=ok' ));
-            exit;
-            
-            $espera= 2;
-            sleep($espera);
+            header( 'Location: login-form/login.php?login=ok' );
 
-            if(!isset($_GET[])){}
-            header( 'Location: index.php?login=ok' );
-            exit;
         }
         else
         {
