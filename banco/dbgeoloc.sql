@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0.1
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: 08-Maio-2023 às 15:43
--- Versão do servidor: 10.1.32-MariaDB
--- PHP Version: 5.6.36
+-- Host: localhost
+-- Tempo de geração: 27/05/2023 às 23:05
+-- Versão do servidor: 10.4.28-MariaDB
+-- Versão do PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `dbgeoloc`
+-- Banco de dados: `dbgeoloc`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `areapub`
+-- Estrutura para tabela `areapub`
 --
 
 CREATE TABLE `areapub` (
@@ -36,12 +35,12 @@ CREATE TABLE `areapub` (
   `cidade` varchar(20) NOT NULL,
   `longitude` float(10,6) NOT NULL,
   `latitude` float(10,6) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tbdenuncia`
+-- Estrutura para tabela `tbdenuncia`
 --
 
 CREATE TABLE `tbdenuncia` (
@@ -55,68 +54,66 @@ CREATE TABLE `tbdenuncia` (
   `latitude` float(10,6) NOT NULL,
   `longitude` float(10,6) NOT NULL,
   `checado` varchar(1) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tbusuario`
+-- Estrutura para tabela `tbusuario`
 --
 
 CREATE TABLE `tbusuario` (
-  `cod_usu` int(5) UNSIGNED NOT NULL,
+  `codusu` int(5) UNSIGNED NOT NULL,
   `nome` varchar(80) NOT NULL,
   `email` varchar(80) NOT NULL,
-  `senha` varchar(8) NOT NULL,
-  `codconfirm` varchar(60) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `senha` varchar(40) NOT NULL,
+  `codconfirm` varchar(40) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `tbusuario`
+-- Despejando dados para a tabela `tbusuario`
 --
 
-INSERT INTO `tbusuario` (`cod_usu`, `nome`, `email`, `senha`, `codconfirm`) VALUES
-(1, 'taylor', 'tayrebert@gmail.com', '123', '6458f6e154cbd'),
-(12, 'p NatÃ£', 'pnata@gmail.com', 'conceica', '6458fba2419e7'),
-(13, 'kaua', 'capiraldo@gmail.com', '852', '6458fc422da82');
+INSERT INTO `tbusuario` (`codusu`, `nome`, `email`, `senha`, `codconfirm`) VALUES
+(71, 'carlosgabriel', 'carlosgabriel03082005@gmail.com', 'wer', '6472692525977');
 
 --
--- Indexes for dumped tables
+-- Índices para tabelas despejadas
 --
 
 --
--- Indexes for table `areapub`
+-- Índices de tabela `areapub`
 --
 ALTER TABLE `areapub`
   ADD PRIMARY KEY (`cpf`);
 
 --
--- Indexes for table `tbdenuncia`
+-- Índices de tabela `tbdenuncia`
 --
 ALTER TABLE `tbdenuncia`
   ADD PRIMARY KEY (`cod_denuncia`);
 
 --
--- Indexes for table `tbusuario`
+-- Índices de tabela `tbusuario`
 --
 ALTER TABLE `tbusuario`
-  ADD PRIMARY KEY (`cod_usu`);
+  ADD PRIMARY KEY (`codusu`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT para tabelas despejadas
 --
 
 --
--- AUTO_INCREMENT for table `tbdenuncia`
+-- AUTO_INCREMENT de tabela `tbdenuncia`
 --
 ALTER TABLE `tbdenuncia`
   MODIFY `cod_denuncia` int(8) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tbusuario`
+-- AUTO_INCREMENT de tabela `tbusuario`
 --
 ALTER TABLE `tbusuario`
-  MODIFY `cod_usu` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `codusu` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
