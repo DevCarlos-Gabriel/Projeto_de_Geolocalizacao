@@ -1,7 +1,7 @@
 <?php
 // pegando dados do ajax em post
 
-  $id_usus = filter_input(INPUT_POST, 'codusu');
+  $id_usu = filter_input(INPUT_POST, 'codusu');
   $nome = filter_input(INPUT_POST, 'nome');
   $email = filter_input(INPUT_POST, 'email');
   $senha = filter_input(INPUT_POST, 'senha');
@@ -9,9 +9,7 @@
 
   include_once '../banco.php';
 
-     if ($id_usus == ''){
       $sql = "INSERT INTO tbusuario (codusu,nome,email,senha,codconfirm) VALUES(null,'$nome','$email','$senha','$codigo_confirmacao')";
-     }
 
   $insert = mysqli_query($conexao, $sql);
 

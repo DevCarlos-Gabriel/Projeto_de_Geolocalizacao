@@ -8,6 +8,9 @@
 
     <link rel="stylesheet" href="fonts/icomoon/style.css">
 
+    <!-- Favicon -->
+    <link href="../assets/img/impact_favicon.png" rel="icon">
+
     <link rel="stylesheet" href="css/owl.carousel.min.css">
 
     <!-- Bootstrap CSS -->
@@ -35,9 +38,9 @@
               <h3>Fazer cadastro na <strong>Impact</strong></h3>
               <p class="mb-4">Bem-vindo, para realizar seu cadastro informe seus dados nos campos a seguir.</p>
             </div>
-            <form action="salvacad.php" method="POST" id="cadastro">
+      <form action="salvacad.php" method="POST" id="cadastro">
 			  
-        <input type="text" class="form-control" name="id_usu" id="id_usu" readonly disabled><br>
+        <a href="../index.php" class="btn mb-2 h-25 text-white" style="text-decoration: none; background-color: #29bb8a;" role="button">Voltar</a>
 
 			  <div class="form-group first">
             <label for="nome">Nome</label>
@@ -61,9 +64,7 @@
 			  
         <input type="submit" value="Cadastrar" class="btn text-white btn-block btn-primary" id="botao">
         
-              
-			  
-            </form>
+      </form>
             </div>
           </div>
           
@@ -76,7 +77,7 @@
     
     <script src="../js/jquery3.7_.js"></script>
     <script src="../js/jquery-3.3.1.min.js"></script>
-    <script src="../js/weetalert2.js"></script>
+    <script src="../js/sweetalert2.js"></script>
     <script src="../js/popper.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/main.js"></script>
@@ -109,7 +110,7 @@
 
           $.post("salvacad.php", { codusu: idUsuario, nome: nome, email: email, senha: senha }, function(data) {
             if (data.trim() === '1') {
-              /*Swal.fire('Sucesso!', 'Cadastro efetuado com êxito!', 'success');*/arguments
+              /*Swal.fire('Sucesso!', 'Cadastro efetuado com êxito!', 'success');*/
 
               Swal.fire({
                 title: 'Sucesso!',
@@ -118,7 +119,7 @@
                 timer: 3000, // Tempo em milissegundos (3 segundos)
                 showConfirmButton: false
               }).then(function() {
-                window.location.href = '../index.php'; // Redirecionar para a página desejada após o tempo definido
+                window.location.href = 'login.php'; // Redirecionar para a página desejada após o tempo definido
               });// fim do then
             } else {
               Swal.fire('Erro!', 'Erro ao cadastrar os dados!', 'error');
@@ -127,9 +128,6 @@
         });
 
       }); // fim do jquery
-      
-
-      
     </script>
   </body>
 </html>

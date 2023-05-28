@@ -1,3 +1,16 @@
+<?php
+  session_start();
+
+  if ((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true))
+  {
+    unset($_SESSION['email']);
+    unset($_SESSION['senha']);
+    header('Location: ./login-form/login.php');
+  }
+
+  $logado = $_SESSION['email'];
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -5,7 +18,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Impact</title>
+  <title>Impact - Sistema</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -69,8 +82,9 @@
               <li><a href="./login-form/cadastro.php">Cadastro</a></li>
               </li>
 		  
-              <li><a href="./login-form/login.php">Login</a>
-			  </li>
+              <li><a href="./login-form/login.php">Login</a></li>
+
+              <li><a href="./login-form/sair.php">Sair</a></li>
             </ul>
           
           <li><a href="contato.html">Contato</a></li>
