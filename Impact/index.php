@@ -27,12 +27,14 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
-  <!-- =======================================================
-  * Template Name: Impact - v1.2.0
-  * Template URL: https://bootstrapmade.com/impact-bootstrap-business-website-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+   <!-- CSS folheto Mapa -->
+   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+   <!-- JavaScript Mapa -->
+   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
 </head>
 
 <body>
@@ -73,7 +75,6 @@
 			  </li>
             </ul>
           
-          <li><a href="contato.html">Contato</a></li>
         </ul>
       </nav><!-- .navbar -->
 
@@ -190,12 +191,6 @@
       </div>
     </section><!-- End About Us Section -->
 
-   
-    
-
-   
-   
-
     <!-- ======= Stats Counter Section ======= -->
     <section id="stats-counter" class="stats-counter">
       <div class="container" data-aos="fade-up">
@@ -242,106 +237,6 @@
       </div>
     </section><!-- End Call To Action Section -->
 	
-	
-	
-	 <!-- ======= Clients Section ======= -->
-	 
-	  <!-- End Clients Section -->
-	
-
-   
-    <!--  ======= Our Services Section ======= 
-    <section id="services" class="services sections-bg">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-header">
-          <h2>Our Services</h2>
-          <p>Aperiam dolorum et et wuia molestias qui eveniet numquam nihil porro incidunt dolores placeat sunt id nobis omnis tiledo stran delop</p>
-        </div>
-
-        <div class="row gy-4" data-aos="fade-up" data-aos-delay="100">
-
-          <div class="col-lg-4 col-md-6">
-            <div class="service-item  position-relative">
-              <div class="icon">
-                <i class="bi bi-activity"></i>
-              </div>
-              <h3>Nesciunt Mete</h3>
-              <p>Provident nihil minus qui consequatur non omnis maiores. Eos accusantium minus dolores iure perferendis tempore et consequatur.</p>
-              <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="bi bi-broadcast"></i>
-              </div>
-              <h3>Eosle Commodi</h3>
-              <p>Ut autem aut autem non a. Sint sint sit facilis nam iusto sint. Libero corrupti neque eum hic non ut nesciunt dolorem.</p>
-              <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="bi bi-easel"></i>
-              </div>
-              <h3>Ledo Markt</h3>
-              <p>Ut excepturi voluptatem nisi sed. Quidem fuga consequatur. Minus ea aut. Vel qui id voluptas adipisci eos earum corrupti.</p>
-              <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="bi bi-bounding-box-circles"></i>
-              </div>
-              <h3>Asperiores Commodit</h3>
-              <p>Non et temporibus minus omnis sed dolor esse consequatur. Cupiditate sed error ea fuga sit provident adipisci neque.</p>
-              <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="bi bi-calendar4-week"></i>
-              </div>
-              <h3>Velit Doloremque</h3>
-              <p>Cumque et suscipit saepe. Est maiores autem enim facilis ut aut ipsam corporis aut. Sed animi at autem alias eius labore.</p>
-              <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="bi bi-chat-square-text"></i>
-              </div>
-              <h3>Dolori Architecto</h3>
-              <p>Hic molestias ea quibusdam eos. Fugiat enim doloremque aut neque non et debitis iure. Corrupti recusandae ducimus enim.</p>
-              <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section> -->
-
-
-   
-
-   
-   
-
-    
-
-   
-
     <!-- ======= maps Section ======= -->
     <section id="contact" class="contact">
       <div class="container" data-aos="fade-up">
@@ -355,34 +250,34 @@
 
           <div class="col-lg-4">
 
-            <div class="info-container">
-               <img src="assets/img/kk.jpg" class="img-fluid" alt="" data-aos="zoom-out" data-aos-delay="100">
-            </div>
+          <div class="info-container" id="mapid">
+               
+          </div>
 
           </div>
 
           <div class="col-lg-8">
             
-			<form action="forms/mapa.php" method="post" role="form" class="php-email-form">
+			<form action="forms/mapa.php" class="php-email-form">
               
 			  <div class="row">
                 <div class="col-md-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Digite seu nome" required>
+                  <input type="text" class="form-control" placeholder="Digite seu nome">
                 </div>
 				
                 <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="text" class="form-control" name="rua" id="rua" placeholder="Digite sua rua" required>
+                  <input type="text" class="form-control" placeholder="Digite sua rua">
                 </div>
 				
               </div>
 			  
 			  <div class="row">
                 <div class="col-md-6 form-group">
-                  <input type="text" name="bairro" class="form-control" id="bairro" placeholder="Digite seu bairro" required>
+                  <input type="text" class="form-control" placeholder="Digite seu bairro">
                 </div>
 				
                 <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="text" class="form-control" name="cidade" id="cidade" placeholder="Digite sua cidade" required>
+                  <input type="text" class="form-control" placeholder="Digite sua cidade">
                 </div>
 				
               </div>
@@ -390,16 +285,20 @@
               
 			  
               <div class="form-group mt-3">
-                <textarea class="form-control" name="descricao" id="descricao" rows="7" placeholder="Descrição" required></textarea>
+                <textarea class="form-control"  rows="7" placeholder="Descrição"></textarea>
               </div>
 			  
-              <div class="my-3">
-                <div class="loading">Carregando</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Enviado com sucesso.Obrigado por ajudar o meio-ambiente!</div>
-              </div>
-			  
-              <div class="text-center"><button type="submit">Enviar</button></div>
+              <script>
+                function aviso(){
+                  Swal.fire({
+                    title: 'Não Permitido!',
+                    text: 'Faça primeiro o login para conseguir usar esta ferramenta!',
+                    icon: 'warning',
+                    showConfirmButton: true
+                  });
+                }
+              </script>
+              <div class="text-center"><button type="submit" onclick="aviso()">Enviar</button></div>
             
 			</form>
 			
@@ -518,7 +417,7 @@
             <div class="member">
               <img src="assets/img/team/team-1.jpeg" class="img-fluid" alt="">
               <h4>Carlos Gabriel</h4>
-              <span>Implementação da API</span>
+              <span>Banco de dados</span>
               <div class="social">
                 <a href=""><i class="bi bi-twitter"></i></a>
                 <a href=""><i class="bi bi-facebook"></i></a>
@@ -532,7 +431,7 @@
             <div class="member">
               <img src="assets/img/team/team-2.jpeg" class="img-fluid" alt="">
               <h4>Eduarda Sousa</h4>
-              <span>Banco de dados</span>
+              <span>Implementação da API</span>
               <div class="social">
                 <a href=""><i class="bi bi-twitter"></i></a>
                 <a href=""><i class="bi bi-facebook"></i></a>
@@ -680,6 +579,11 @@
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
 
-</body>
+  <!-- sweetalert2 -->
+  <script src="js/sweetalert2.js"></script>
 
+  <!-- JS Mapa -->
+  <script src="assets/js/map_index.js"></script>
+
+</body>
 </html>

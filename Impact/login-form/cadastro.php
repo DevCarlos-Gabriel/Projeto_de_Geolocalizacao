@@ -39,30 +39,40 @@
               <p class="mb-4">Bem-vindo, para realizar seu cadastro informe seus dados nos campos a seguir.</p>
             </div>
       <form action="salvacad.php" method="POST" id="cadastro">
-			  
-        <a href="../index.php" class="btn mb-2 h-25 text-white" style="text-decoration: none; background-color: #29bb8a;" role="button">Voltar</a>
 
-			  <div class="form-group first">
-            <label for="nome">Nome</label>
-            <input type="text" class="form-control" name="nome" id="nome" Required>
+			  <div class="row">
+          <div class="form-group first">
+                      <label for="nome">Nome</label>
+                      <input type="text" class="form-control" name="nome" id="nome" Required>
+                  </div>
+          <div class="form-group first">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" name="email" id="email"  Required>
+                  </div>
+          
+                  <div class="form-group last mb-4">
+                    <label for="password">Senha</label>
+                    <input type="password" class="form-control" name="senha1" id="senha1"  Required>
+                  </div>
+          
+                  <div class="form-group last mb-4">
+                    <label for="password">Informe novamente a Senha</label>
+                    <input type="password" class="form-control" name="senha2" id="senha2" Required>
+                  </div>
         </div>
 
-			  <div class="form-group first">
-          <label for="email">Email</label>
-          <input type="email" class="form-control" name="email" id="email"  Required>
+        
+        
+			  <div class="row">
+        <div class="form-group last mb-4 col-md-6">
+          <a href="../index.php" class="btn text-white btn-block btn-primary" style="text-decoration: none; padding: 1rem; vertical-align: middle;" role="button">Voltar</a>
         </div>
 
-        <div class="form-group last mb-4">
-          <label for="password">Senha</label>
-          <input type="password" class="form-control" name="senha1" id="senha1"  Required>
+        <div class="last mb-4 col-md-6">
+          <input type="submit" class="btn text-white btn-block btn-primary" id="botao" value="Cadastrar">
+          
         </div>
-
-        <div class="form-group last mb-4">
-          <label for="password">Informe novamente a Senha</label>
-          <input type="password" class="form-control" name="senha2" id="senha2" Required>
         </div>
-			  
-        <input type="submit" value="Cadastrar" class="btn text-white btn-block btn-primary" id="botao">
         
       </form>
             </div>
@@ -108,9 +118,8 @@
           var senha = $("input[name='senha1']").val();
 
 
-          $.post("salvacad.php", { codusu: idUsuario, nome: nome, email: email, senha: senha }, function(data) {
+          $.post("salvacad.php", { codusu: idUsuario, nome: nome, email: email, senha: senha}, function(data) {
             if (data.trim() === '1') {
-              /*Swal.fire('Sucesso!', 'Cadastro efetuado com êxito!', 'success');*/
 
               Swal.fire({
                 title: 'Sucesso!',
@@ -125,9 +134,52 @@
               Swal.fire('Erro!', 'Erro ao cadastrar os dados!', 'error');
             }
           });
-        });
 
-      }); // fim do jquery
+          /*$("input[name='avatar']").on("change", function(e) {
+            var fotoPerf = e.target.files[0];
+            var nome = $("input[name='nome']").val();
+            var email = $("input[name='email']").val();
+            var senha = $("input[name='senha1']").val();
+
+            var formData = new FormData();
+            formData.append('nome', nome);
+            formData.append('email', email);
+            formData.append('senha', senha);
+            formData.append('avatar', fotoPerf);
+
+            $.ajax({
+              url: 'salvacad.php',
+              type: 'POST',
+              data: formData,
+              processData: false,
+              contentType: false,
+              success: function(data) {
+                if (data.trim() === '1') {
+                  // Sucesso
+                  Swal.fire({
+                    title: 'Sucesso!',
+                    text: 'Cadastro efetuado com êxito!',
+                    icon: 'success',
+                    timer: 3000,
+                    showConfirmButton: false
+                  }).then(function() {
+                    window.location.href = 'login.php';
+                  });
+                } else {
+                  // Erro
+                  Swal.fire('Erro!', 'Erro ao cadastrar os dados!', 'error');
+                }
+              },
+              error: function(jqXHR, textStatus, errorThrown) {
+                // Tratar erro
+                Swal.fire('Erro!', 'Erro na requisição AJAX!', 'error');
+              }
+            });
+                    });*/
+
+            });
+          }); // fim do jquery
+          
     </script>
   </body>
 </html>

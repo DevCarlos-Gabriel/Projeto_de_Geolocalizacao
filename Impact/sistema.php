@@ -8,7 +8,6 @@
     header('Location: ./login-form/login.php');
   }
 
-  $logado = $_SESSION['email'];
 ?>
 
 <!DOCTYPE html>
@@ -40,12 +39,20 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
-  <!-- =======================================================
-  * Template Name: Impact - v1.2.0
-  * Template URL: https://bootstrapmade.com/impact-bootstrap-business-website-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+  <!-- CSS folheto Mapa -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+
+   <!-- JavaScript Mapa -->
+   <script src="./leaflet/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+
+     <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+
+
+     
 </head>
 
 <body>
@@ -62,8 +69,32 @@
   </section><!-- End Top Bar -->
 
   <header id="header" class="header d-flex align-items-center">
-
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+    <?php
+        if(isset($_GET['login'])){
+          if($_GET['login'] == 'ok'){
+          echo "
+          <script src='./js/sweetalert2.js'></script>
+          <script>
+            Swal.fire({
+              title: 'Sucesso!',
+              text: 'Login efetuado com êxito!',
+              icon: 'success',
+              timer: 3000,
+              showConfirmButton: false
+            }).then(function() {
+              // Apaga a variável da URL
+              history.replaceState({}, document.title, window.location.pathname);
+          });
+          </script>";
+         
+          }
+        }
+  ?>
+
+<script src="./js/jquery3.7_.js"></script>
+  <script src="./js/sweetalert2.js"></script>
+
       <a href="index.html" class="logo d-flex align-items-center">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="assets/img/logo.png" alt=""> -->
@@ -76,18 +107,10 @@
           <li><a href="#contact">Mapa</a></li>
           <li><a href="#team">Team</a></li>
           
-          
           <li class="dropdown"><a href="#"><span>Usuário</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
-              <li><a href="./login-form/cadastro.php">Cadastro</a></li>
-              </li>
-		  
-              <li><a href="./login-form/login.php">Login</a></li>
-
               <li><a href="./login-form/sair.php">Sair</a></li>
             </ul>
-          
-          <li><a href="contato.html">Contato</a></li>
         </ul>
       </nav><!-- .navbar -->
 
@@ -255,106 +278,6 @@
        
       </div>
     </section><!-- End Call To Action Section -->
-	
-	
-	
-	 <!-- ======= Clients Section ======= -->
-	 
-	  <!-- End Clients Section -->
-	
-
-   
-    <!--  ======= Our Services Section ======= 
-    <section id="services" class="services sections-bg">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-header">
-          <h2>Our Services</h2>
-          <p>Aperiam dolorum et et wuia molestias qui eveniet numquam nihil porro incidunt dolores placeat sunt id nobis omnis tiledo stran delop</p>
-        </div>
-
-        <div class="row gy-4" data-aos="fade-up" data-aos-delay="100">
-
-          <div class="col-lg-4 col-md-6">
-            <div class="service-item  position-relative">
-              <div class="icon">
-                <i class="bi bi-activity"></i>
-              </div>
-              <h3>Nesciunt Mete</h3>
-              <p>Provident nihil minus qui consequatur non omnis maiores. Eos accusantium minus dolores iure perferendis tempore et consequatur.</p>
-              <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="bi bi-broadcast"></i>
-              </div>
-              <h3>Eosle Commodi</h3>
-              <p>Ut autem aut autem non a. Sint sint sit facilis nam iusto sint. Libero corrupti neque eum hic non ut nesciunt dolorem.</p>
-              <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="bi bi-easel"></i>
-              </div>
-              <h3>Ledo Markt</h3>
-              <p>Ut excepturi voluptatem nisi sed. Quidem fuga consequatur. Minus ea aut. Vel qui id voluptas adipisci eos earum corrupti.</p>
-              <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="bi bi-bounding-box-circles"></i>
-              </div>
-              <h3>Asperiores Commodit</h3>
-              <p>Non et temporibus minus omnis sed dolor esse consequatur. Cupiditate sed error ea fuga sit provident adipisci neque.</p>
-              <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="bi bi-calendar4-week"></i>
-              </div>
-              <h3>Velit Doloremque</h3>
-              <p>Cumque et suscipit saepe. Est maiores autem enim facilis ut aut ipsam corporis aut. Sed animi at autem alias eius labore.</p>
-              <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="bi bi-chat-square-text"></i>
-              </div>
-              <h3>Dolori Architecto</h3>
-              <p>Hic molestias ea quibusdam eos. Fugiat enim doloremque aut neque non et debitis iure. Corrupti recusandae ducimus enim.</p>
-              <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section> -->
-
-
-   
-
-   
-   
-
-    
-
-   
 
     <!-- ======= maps Section ======= -->
     <section id="contact" class="contact">
@@ -369,8 +292,8 @@
 
           <div class="col-lg-4">
 
-            <div class="info-container">
-               <img src="assets/img/kk.jpg" class="img-fluid" alt="" data-aos="zoom-out" data-aos-delay="100">
+            <div class="info-container" id="mapid">
+              
             </div>
 
           </div>
@@ -381,25 +304,49 @@
               
 			  <div class="row">
                 <div class="col-md-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Digite seu nome" required>
+                  <input type="text" name="nome" class="form-control" id="nome" placeholder="Digite seu nome" required>
                 </div>
-				
+
                 <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="text" class="form-control" name="rua" id="rua" placeholder="Digite sua rua" required>
+                  <input type="text" class="form-control" name="cep" id="cep" placeholder="Digite seu CEP" required>
+                </div>
+
+                <div class="col-md-6 form-group mt-3 mt-md-0">
+                  <input type="text" class="form-control" name="estado" id="estado" placeholder="Digite seu Estado" required>
                 </div>
 				
+                <div class="col-md-6 form-group">
+                  <input type="text" name="cidade" class="form-control" id="cidade" placeholder="Digite sua Cidade" required>
+                </div>
+
+                <div class="col-md-6 form-group mt-3 mt-md-0">
+                  <input type="text" class="form-control" name="bairro" id="bairro" placeholder="Digite seu Bairro" required>
+                </div>
+
+                <div class="col-md-6 form-group">
+                  <input type="text" name="rua" class="form-control" id="rua" placeholder="Digite sua Rua" required>
+                </div>
+
               </div>
 			  
 			  <div class="row">
                 <div class="col-md-6 form-group">
-                  <input type="text" name="bairro" class="form-control" id="bairro" placeholder="Digite seu bairro" required>
-                </div>
+                  <input type="date" name="data" class="form-control" id="data" value='<?php echo date("Y-m-d"); ?>' hidden>
+                </div> 
+
+                <div class="col-md-6 form-group">
+                  <input type="time" name="hora" class="form-control" value='' id="hora" hidden>
+                </div> 
+
+                <div class="col-md-6 form-group">
+                  <input type="text" name="latitude" class="form-control" id="latitude" value='' >
+                </div> 
+
+                <div class="col-md-6 form-group">
+                  <input type="text" name="longitude" class="form-control" id="longitude" value='' >
+                </div> 
 				
-                <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="text" class="form-control" name="cidade" id="cidade" placeholder="Digite sua cidade" required>
-                </div>
-				
-              </div>
+            </div>
 			  
               
 			  
@@ -414,6 +361,7 @@
               </div>
 			  
               <div class="text-center"><button type="submit">Enviar</button></div>
+              
             
 			</form>
 			
@@ -423,11 +371,6 @@
 
       </div>
     </section><!-- End maps Section -->
-	
-	
-	
-	
-	
 	
 	<!-- ======= Frequently Asked Questions Section ======= -->
     <section id="faq" class="faq">
@@ -532,11 +475,11 @@
             <div class="member">
               <img src="assets/img/team/team-1.jpeg" class="img-fluid" alt="">
               <h4>Carlos Gabriel</h4>
-              <span>Implementação da API</span>
+              <span>Banco de dados</span>
               <div class="social">
                 <a href=""><i class="bi bi-twitter"></i></a>
                 <a href=""><i class="bi bi-facebook"></i></a>
-                <a href=""><i class="bi bi-instagram"></i></a>
+                <a href="https://instagram.com/carlosnasc_dev?igshid=MzNINGNkZWQ4Mg=="><i class="bi bi-instagram"></i></a>
                 <a href=""><i class="bi bi-linkedin"></i></a>
               </div>
             </div>
@@ -546,7 +489,7 @@
             <div class="member">
               <img src="assets/img/team/team-2.jpeg" class="img-fluid" alt="">
               <h4>Eduarda Sousa</h4>
-              <span>Banco de dados</span>
+              <span>Implementação da API</span>
               <div class="social">
                 <a href=""><i class="bi bi-twitter"></i></a>
                 <a href=""><i class="bi bi-facebook"></i></a>
@@ -646,7 +589,6 @@
           </ul>
         </div>
 
-
         <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
           <h4>Contate-nos</h4>
           <p>
@@ -690,9 +632,30 @@
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
+  
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <!-- JS Mapa -->
+  <script src="assets/js/map_sistema.js"></script>
+
+  <!-- script para definir as horas atuais -->
+
+  <script>
+    // Obtém o elemento de input do tipo time
+    var inputHora = document.getElementById("hora");
+
+    // Obtém a data e hora atuais
+    var dataAtual = new Date();
+
+    // Obtém a hora e os minutos
+    var horaAtual = ("0" + dataAtual.getHours()).slice(-2);
+    var minutosAtuais = ("0" + dataAtual.getMinutes()).slice(-2);
+
+    // Define os valores do input para a hora e minutos atuais
+    inputHora.value = horaAtual + ":" + minutosAtuais;
+  </script>
 
 </body>
 

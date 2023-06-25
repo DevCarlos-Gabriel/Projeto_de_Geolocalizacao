@@ -42,8 +42,6 @@
             
             <form action="testeLogin.php" method="POST" id="login_form">
 
-            <a href="cadastro.php" class="btn mb-2 h-25 text-white" style="text-decoration: none; background-color: #29bb8a; " role="button">Voltar</a>
-
               <div class="form-group first">
                 <label for="username">Email</label>
                 <input type="email" class="form-control" id="email" name="email">
@@ -59,7 +57,17 @@
                 <span class="ml-auto"><a href="#" class="forgot-pass">Esqueceu a senha?</a></span> 
               </div>
 
-              <input type="submit" name="submit" value="Entrar" class="btn text-white btn-block btn-primary">
+              <div class="row">
+                <div class="form-group last mb-4 col-md-6">
+                  <a href="cadastro.php" class="btn text-white btn-block btn-primary" style="text-decoration: none; padding-top: 1rem;" role="button"><span>Voltar</span></a>
+                </div>
+
+                <div class="mb-4 col-md-6">
+                <input type="submit" name="submit" value="Entrar" class="btn text-white btn-block btn-primary">
+                </div>
+              </div>
+
+              
               
               <div class="_aac1_aaco_aacu_aacy_aad6">
                   <p class="_ab25"> 
