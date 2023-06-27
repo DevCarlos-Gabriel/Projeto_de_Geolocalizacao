@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 25-Jun-2023 às 17:13
--- Versão do servidor: 10.4.27-MariaDB
--- versão do PHP: 8.1.12
+-- Tempo de geração: 27/06/2023 às 20:28
+-- Versão do servidor: 10.4.28-MariaDB
+-- Versão do PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `areapub`
+-- Estrutura para tabela `areapub`
 --
 
 CREATE TABLE `areapub` (
@@ -40,7 +40,7 @@ CREATE TABLE `areapub` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tbdenuncia`
+-- Estrutura para tabela `tbdenuncia`
 --
 
 CREATE TABLE `tbdenuncia` (
@@ -65,7 +65,7 @@ CREATE TABLE `tbdenuncia` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tbusuario`
+-- Estrutura para tabela `tbusuario`
 --
 
 CREATE TABLE `tbusuario` (
@@ -77,44 +77,46 @@ CREATE TABLE `tbusuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `tbusuario`
+-- Despejando dados para a tabela `tbusuario`
 --
 
 INSERT INTO `tbusuario` (`codusu`, `nome`, `email`, `senha`, `codconfirm`) VALUES
 (71, 'carlosgabriel', 'carlosgabriel03082005@gmail.com', 'wer', '6472692525977'),
-(72, 'Duda', 'duda@gmail.com', '123', '6472c8bc788e6');
+(72, 'Duda', 'duda@gmail.com', '123', '6472c8bc788e6'),
+(73, 'Amanda Lima', 'amandali@gmail.com', '123', '649b2320a0872'),
+(74, 'isabelle', 'isabelle@gmail.com', '123', '649b2673c94bb');
 
 --
 -- Índices para tabelas despejadas
 --
 
 --
--- Índices para tabela `areapub`
+-- Índices de tabela `areapub`
 --
 ALTER TABLE `areapub`
   ADD PRIMARY KEY (`cpf`);
 
 --
--- Índices para tabela `tbdenuncia`
+-- Índices de tabela `tbdenuncia`
 --
 ALTER TABLE `tbdenuncia`
   ADD PRIMARY KEY (`coddenuncia`);
 
 --
--- Índices para tabela `tbusuario`
+-- Índices de tabela `tbusuario`
 --
 ALTER TABLE `tbusuario`
   ADD PRIMARY KEY (`codusu`);
 
 --
--- AUTO_INCREMENT de tabelas despejadas
+-- AUTO_INCREMENT para tabelas despejadas
 --
 
 --
 -- AUTO_INCREMENT de tabela `tbusuario`
 --
 ALTER TABLE `tbusuario`
-  MODIFY `codusu` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+  MODIFY `codusu` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

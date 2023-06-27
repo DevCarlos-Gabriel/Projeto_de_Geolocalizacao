@@ -90,27 +90,38 @@ map.on('click', function(e) {
               const cidade = data.localidade || '';
               const estado = data.uf || '';
               const rua = data.logradouro || '';
-              const bairro = data.bairro || '';
+              //const bairro = data.bairro || '';
+
+              console.log(cidade);
+              console.log(estado);
+              console.log(rua);
+              
       
               // Preencher os campos de cidade, estado, rua e bairro
               document.getElementById('cidade').value = cidade;
               document.getElementById('estado').value = estado;
               document.getElementById('rua').value = rua;
-              document.getElementById('bairro').value = bairro;
+
+              const pais = "Brazil";
+              //document.getElementById('bairro').value = bairro;
       
               // Consultar as coordenadas geográficas com base no CEP usando Geocoder do Leaflet
               const geocoder = new L.Control.Geocoder.Nominatim();
-              geocoder.geocode({ q: `${rua}, ${cidade}, ${estado}, Brazil` }, results => {
+              geocoder.geocode({ q: `${rua}, ${cidade}, ${estado}, ${pais}` }, results => {
                 if (results.length > 0) {
                   const latitude = results[0].center.lat;
                   const longitude = results[0].center.lng;
+
+                  console.log(latitude);
+                  console.log(longitude);
+
                   map.setView([latitude, longitude], 10);
                 } else {
                   console.log('CEP não encontrado');
                 }
               });
             } else {
-              console.log('CEP não encontrado');
+              console.log('CEP não encontrado response');
             }
           })
           .catch(error => {
@@ -157,7 +168,9 @@ map.on('click', function(event) {
 
   // Adicionar marcador ao mapa
   addMarkerToMap(latlng);
-});*/
+});
+
+*/
 
 
 function geocodeAndSetView(cep) {
@@ -179,6 +192,7 @@ function geocodeAndSetView(cep) {
           // Verificar se os campos de endereço estão preenchidos
           if (cidade && estado && rua) {
             // Consultar as coordenadas geográficas com base no endereço usando o OpenStreetMap Nominatim
+
             const address = `${rua}, ${cidade}, ${estado}, Brazil`;
             const url = `https://nominatim.openstreetmap.org/search?format=json&limit=1&q=${encodeURIComponent(
               address
@@ -191,6 +205,9 @@ function geocodeAndSetView(cep) {
                   const latitude = parseFloat(results[0].lat);
                   const longitude = parseFloat(results[0].lon);
   
+                  document.getElementById('latitude').value = latitude;
+                  document.getElementById('longitude').value = longitude;
+
                   // Atualizar as coordenadas do mapa
                   map.setView([latitude, longitude], 10);
   

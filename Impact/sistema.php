@@ -144,10 +144,7 @@
         <div class="row gy-4 mt-5">
 
           <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="icon-box">
-              <div class="icon"><i class="bi bi-bar-chart-line"></i></div>
-              <h4 class="title"><a href="http://emissoes.energiaeambiente.org.br/" class="stretched-link">Gráficos</a></h4>
-            </div>
+           
           </div>
           <!--End Icon Box -->
 
@@ -159,19 +156,16 @@
           </div>
           <!--End Icon Box -->
 
-          <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="icon-box">
-              <div class="icon"><i class="bi bi-clipboard2-check"></i></div>
-              <h4 class="title"><a href="" class="stretched-link">Projetos</a></h4>
-            </div>
-          </div>
-          <!--End Icon Box -->
-
           <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="500">
             <div class="icon-box">
               <div class="icon"><i class="bi bi-file-text"></i></div>
               <h4 class="title"><a href="tds.php" class="stretched-link">Termos de serviços</a></h4>
             </div>
+          </div>
+          <!--End Icon Box -->
+
+          <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="500">
+            
           </div>
           <!--End Icon Box -->
 
@@ -197,7 +191,7 @@
         <div class="row gy-4">
           <div class="col-lg-6">
             <h3>Quem nós somos</h3>
-            <img src="assets/img/icon.png" class="img-fluid rounded-4 mb-4" alt="">
+            <img src="assets/img/logotipo.png" class="img-fluid rounded-4 mb-4" alt="">
             <p>Impact é uma rede de organizações independentes, que usa confrontação pacífica,criativa e tecnológica para expor problemas ambientais e desenvolver soluções para um futuro verde e pacífico.</p>
             
           </div>
@@ -270,14 +264,8 @@
 	
 	
 	<!-- ======= Call To Action Section ======= -->
-    <section id="call-to-action" class="call-to-action">
-      <div class="container text-center" data-aos="zoom-out">
-        <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox play-btn"></a>
-        <h3>Como usar o ecoMaps</h3>
-        <p> Nesse vídeo você pode aprender a utilizar o ecoMaps, mapa de geolocalização de focos de lixo desenvolvido pelo grupo Impact.</p>
-       
-      </div>
-    </section><!-- End Call To Action Section -->
+  
+    <!-- End Call To Action Section -->
 
     <!-- ======= maps Section ======= -->
     <section id="contact" class="contact">
@@ -327,6 +315,14 @@
                   <input type="text" name="rua" class="form-control" id="rua" placeholder="Digite sua Rua" required>
                 </div>
 
+                <div class="col-md-6 form-group">
+                  <input type="text" name="cpf" class="form-control" id="cpf" placeholder="Digite seu CPF" required>
+                </div>
+
+                <div class="col-md-6 form-group">
+                  <input type="text" name="email" class="form-control" id="email" value=''>
+                </div> 
+
               </div>
 			  
 			  <div class="row">
@@ -339,12 +335,12 @@
                 </div> 
 
                 <div class="col-md-6 form-group">
-                  <input type="text" name="latitude" class="form-control" id="latitude" value='' >
+                  <input type="text" name="latitude" class="form-control" id="latitude" value='' hidden>
                 </div> 
 
                 <div class="col-md-6 form-group">
-                  <input type="text" name="longitude" class="form-control" id="longitude" value='' >
-                </div> 
+                  <input type="text" name="longitude" class="form-control" id="longitude" value='' hidden>
+                </div>
 				
             </div>
 			  
@@ -585,7 +581,7 @@
             <li><a href="#about">Sobre</a></li>
             <li><a href="#contact">ecoMaps</a></li>
             <li><a href="tds.php">Termos de serviço</a></li>
-            <li><a href="contato.html">Contato</a></li>
+            
           </ul>
         </div>
 
